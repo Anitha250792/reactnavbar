@@ -1,0 +1,192 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  background: linear-gradient(90deg, #4f46e5, #3b82f6, #06b6d4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+
+/* Logo */
+.logo {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Nav Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  transition: all 0.3s ease;
+}
+
+.nav-item {
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+.nav-item:hover {
+  color: #ffdd57;
+  transform: scale(1.1);
+}
+
+/* Active */
+.nav-item.active {
+  color: #ff5733;
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.line {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger animations */
+.rotate1 {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.fade {
+  opacity: 0;
+}
+.rotate2 {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: linear-gradient(180deg, #4f46e5, #3b82f6);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-links.open {
+    max-height: 300px;
+  }
+
+  .nav-item {
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    font-size: 1.2rem;
+  }
+}
+
+/* Content */
+.content {
+  text-align: center;
+  margin-top: 100px; /* navbar height + spacing */
+  font-size: 1.5rem;
+  color: #333;
+}
+/* Sections */
+.section {
+  min-height: 100vh; /* full viewport height */
+  width: 100%;
+  display: flex;
+  flex-direction: column;  /* stack content vertically */
+  align-items: center;     /* center horizontally */
+  justify-content: flex-start; /* start from top */
+  color: white;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 120px 20px 40px; /* top padding for navbar */
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+/* Cards container */
+.cards {
+  display: flex;
+  flex-wrap: wrap;      /* wrap cards to new line if needed */
+  justify-content: center; /* center cards horizontally */
+  gap: 20px;
+  margin-top: 30px;
+  width: 100%;          /* take full width */
+  min-width: 1480px;    /* optional max width */
+  padding: 0 20px;      /* padding for smaller screens */
+}
+
+/* Individual card */
+.card {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 20px 30px;
+  border-radius: 15px;
+  min-width: 150px;
+  flex: 1 1 150px;      /* grow/shrink with container */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+}
+
+/* Card hover */
+.card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+
+/* Different backgrounds for sections */
+.home {
+  background: linear-gradient(135deg, #dde07e, #ea3bf6);
+}
+
+.about {
+  background: linear-gradient(135deg, #06b6d4, #3b82f6);
+}
+
+.services {
+  background: linear-gradient(135deg, #f97316, #facc15);
+  color: #333;
+}
+
+.contact {
+  background: linear-gradient(135deg, #16a34a, #22d3ee);
+}
