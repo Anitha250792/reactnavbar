@@ -78,21 +78,13 @@
 }
 
 /* Hamburger animations */
-.rotate1 {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.fade {
-  opacity: 0;
-}
-.rotate2 {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
+.rotate1 { transform: rotate(45deg) translate(5px, 5px); }
+.fade { opacity: 0; }
+.rotate2 { transform: rotate(-45deg) translate(5px, -5px); }
 
-/* Responsive */
+/* Responsive Navbar */
 @media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
+  .hamburger { display: flex; }
 
   .nav-links {
     position: absolute;
@@ -106,9 +98,7 @@
     transition: max-height 0.3s ease;
   }
 
-  .nav-links.open {
-    max-height: 300px;
-  }
+  .nav-links.open { max-height: 300px; }
 
   .nav-item {
     padding: 15px;
@@ -125,32 +115,62 @@
   font-size: 1.5rem;
   color: #333;
 }
-/* Sections */
+
+/* Base styles (for large screens) */
 .section {
-  min-height: 100vh; /* full viewport height */
+  min-height: 100vh;
   width: 100%;
+  min-width: 1520px;
   display: flex;
-  flex-direction: column;  /* stack content vertically */
-  align-items: center;     /* center horizontally */
-  justify-content: flex-start; /* start from top */
-  color: white;
-  text-align: center;
-  font-size: 1.2rem;
-  padding: 120px 20px 40px; /* top padding for navbar */
-  scroll-behavior: smooth;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 120px 20px 40px;
   box-sizing: border-box;
 }
+
+/* Medium screens (laptops/tablets) */
+@media (max-width: 1200px) {
+  .section {
+    min-width: 100%;
+    padding: 100px 15px 30px;
+  }
+}
+
+/* Small screens (tablets/large phones) */
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column;
+    padding: 80px 10px 20px;
+  }
+}
+
+/* Extra small screens (phones) */
+@media (max-width: 480px) {
+  .section {
+    padding: 60px 5px 15px;
+  }
+}
+
 
 /* Cards container */
 .cards {
   display: flex;
-  flex-wrap: wrap;      /* wrap cards to new line if needed */
-  justify-content: center; /* center cards horizontally */
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
   margin-top: 30px;
-  width: 100%;          /* take full width */
-  min-width: 1480px;    /* optional max width */
-  padding: 0 20px;      /* padding for smaller screens */
+  width: 100%;
+  max-width: 1200px; /* limit max width for large screens */
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .section { padding: 100px 15px 30px; }
+  .cards { flex-direction: column; align-items: center; }
+  .card { width: 90%; flex: none; }
 }
 
 /* Individual card */
@@ -160,7 +180,7 @@
   padding: 20px 30px;
   border-radius: 15px;
   min-width: 150px;
-  flex: 1 1 150px;      /* grow/shrink with container */
+  flex: 1 1 150px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, background 0.3s ease;
   cursor: pointer;
@@ -172,21 +192,33 @@
   background: rgba(255, 255, 255, 0.4);
 }
 
+/* Different section backgrounds */
+.home { background: linear-gradient(135deg, #dde07e, #ea3bf6); }
+.about { background: linear-gradient(135deg, #06b6d4, #3b82f6); }
+.services { background: linear-gradient(135deg, #f97316, #facc15); color: #333; }
+.contact { background: linear-gradient(135deg, #16a34a, #22d3ee); }
 
-/* Different backgrounds for sections */
-.home {
-  background: linear-gradient(135deg, #dde07e, #ea3bf6);
+/* Responsive Adjustments */
+
+/* Tablets <= 1024px */
+@media (max-width: 1024px) {
+  .cards { gap: 15px; }
+  .card { flex: 1 1 45%; min-width: 120px; padding: 18px 25px; }
 }
 
-.about {
-  background: linear-gradient(135deg, #06b6d4, #3b82f6);
+/* Mobile <= 768px */
+@media (max-width: 768px) {
+  .cards { flex-direction: column; align-items: center; gap: 15px; }
+  .card { width: 90%; flex: none; }
+  .section { padding: 100px 15px 30px; font-size: 1rem; }
+  .content { font-size: 1.2rem; }
 }
 
-.services {
-  background: linear-gradient(135deg, #f97316, #facc15);
-  color: #333;
-}
-
-.contact {
-  background: linear-gradient(135deg, #16a34a, #22d3ee);
+/* Small Mobile <= 480px */
+@media (max-width: 480px) {
+  .navbar-container { padding: 10px 15px; }
+  .logo { font-size: 1.2rem; }
+  .card { padding: 15px 20px; font-size: 0.9rem; }
+  .section { padding: 90px 10px 20px; font-size: 0.9rem; }
+  .content { font-size: 1rem; }
 }
